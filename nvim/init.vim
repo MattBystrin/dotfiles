@@ -4,6 +4,10 @@ set nohlsearch
 set hidden
 set nobackup
 set nowrap
+set exrc
+set secure
+set autowrite
+set nomodeline
 " set undofile
 set incsearch
 set scrolloff=8
@@ -22,7 +26,6 @@ call plug#begin('~/.vim/plugged')
 	" Plug 'hrsh7th/cmp-vsnip' " Snippets
 	Plug 'nvim-lua/plenary.nvim' " Fuzzy finder
 	Plug 'nvim-telescope/telescope.nvim' " Finder
-	" Plug 'puremourning/vimspector' " Debug  adater protocol plugin
 	" Plug 'ludovicchabant/vim-gutentags' Tag autogeneration
 	Plug 'tpope/vim-fugitive'
 	endif
@@ -105,5 +108,6 @@ source ~/.config/nvim/telescope.vim
 
 nnoremap <silent> <Space>ff :Telescope find_files<CR>
 nnoremap <silent> <Space>fs :Telescope lsp_document_symbols<CR>
+nnoremap <silent> <Space>lg :Telescope live_grep<CR>
 
 endif

@@ -1,0 +1,6 @@
+v       Open directory in NeoVim
+	tmux new-window -n `basename %d` nvim "+cd %d" 
+t       Open shell in tmux
+	tmux new-window -n `basename %d`
+l       Connect to laptop
+	tmux new-window -n "ssh-laptop" ssh laptop

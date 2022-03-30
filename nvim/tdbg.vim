@@ -14,10 +14,49 @@ noremap <silent> <F7> :Finish<CR>
 noremap <silent> <F8> :Step<CR>
 " :Evaluate
 " :Run
-noremap <F10> :Termdebug<CR>:call TermDebugSendCommand('source .breakpoints')<CR>
-noremap <silent> <S-F10> :call TermDebugSendCommand('save breakpoints .breakpoints')<CR>:Gdb<CR>:bw!<CR><CR> 
-nnoremap <silent> <Space>db :call TermDebugSendCommand('delete breakpoints')<CR>
-nnoremap <silent> <Space>il :call TermDebugSendCommand('info locals')<CR>
-nnoremap <silent> <Space>ia :call TermDebugSendCommand('info args')<CR>
-nnoremap <silent> <Space>ib :call TermDebugSendCommand('info break')<CR>
 
+function SaveBp()
+	call inputsave()
+	let name = input('Save breakpoints: ')
+	call inputrestore()
+	call TermDebugSendCommand('save breakpoints ' . name)
+endfunction
+
+function LoadBp()
+	call inputsave()
+	let name = input('Load breakpoints: ')
+	call inputrestore()
+	call TermDebugSendCommand('source ' . name)
+endfunction
+
+function Close()
+	call TermDebugSendCommand('q')
+	call TermDebugSendCommand('y')
+	Gdb
+endfunction
+
+let g:gdbsrvcmd = "gdbserver --multi localhost:3333"
+function StartServer()
+	let s:srvid = jobstart(g:gdbsrvcmd)
+	if s:srvid == -1
+		echoerr 'Failed to start GDB server'
+		return
+	endif
+endfunction
+
+function StopServer()
+	if exists('s:srvid')
+		call jobstop(s:srvid)
+	endif
+endfunction
+
+noremap <silent> <F10> :Termdebug<CR>
+noremap <silent> <S-F10> :call Close()<CR>
+nnoremap <silent> <Space>sb :call SaveBp()<CR>
+nnoremap <silent> <Space>lb :call LoadBp()<CR>
+nnoremap <silent> <Space>db :call TermDebugSendCommand('delete breakpoints')<CR>
+nnoremap <silent> <Space>ib :call TermDebugSendCommand('info break')<CR>
+nnoremap <silent> <Space>il :call TermDebugSendCommand('info locals')<CR>
+nnoremap <silent> <Space>ia :call TerDebugSendCommand('info args')<CR>
+
+" au User TermdebugStartPost autocmd :call TermDebugSendCommand('file ' . debugfile)<CR>

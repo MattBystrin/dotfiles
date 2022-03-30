@@ -33,8 +33,7 @@ local servers = {'clangd', 'pylsp'}
 nvim_lsp['clangd'].setup {
 	cmd = {
 		"clangd-13",
-		"--background-index",
-		"--query-driver=/usr/bin/g++"
+		"--background-index"
 	},
 	on_attach = on_attach,
 	flags = {
