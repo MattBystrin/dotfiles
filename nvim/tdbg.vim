@@ -37,16 +37,23 @@ endfunction
 
 let g:gdbsrvcmd = "gdbserver --multi localhost:3333"
 function StartServer()
-	let s:srvid = jobstart(g:gdbsrvcmd)
-	if s:srvid == -1
-		echoerr 'Failed to start GDB server'
-		return
+	if !exists('s:srvid')
+		let s:srvid = jobstart(g:gdbsrvcmd)
+		if s:srvid == -1
+			echoerr 'Failed to start GDB server'
+			return
+		endif
+	else
+		echoerr 'Server already running'
 	endif
 endfunction
 
 function StopServer()
 	if exists('s:srvid')
 		call jobstop(s:srvid)
+		unlet s:srvid
+	else
+		echoerr 'No server running'
 	endif
 endfunction
 

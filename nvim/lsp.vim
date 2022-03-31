@@ -33,6 +33,7 @@ local servers = {'clangd', 'pylsp'}
 nvim_lsp['clangd'].setup {
 	cmd = {
 		"clangd-13",
+		"--all-scopes-completion",
 		"--background-index"
 	},
 	on_attach = on_attach,
