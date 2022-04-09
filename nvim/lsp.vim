@@ -33,6 +33,7 @@ local servers = {'clangd', 'pylsp'}
 nvim_lsp['clangd'].setup {
 	cmd = {
 		"clangd-13",
+		"--query-driver=/usr/bin/arm-none-eabi-gcc,/urs/bin/gcc",
 		"--all-scopes-completion",
 		"--background-index"
 	},

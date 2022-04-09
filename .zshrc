@@ -199,5 +199,8 @@ if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
 
-#My aliases
+# my aliases
 #source ~/.aliases
+
+# fzf source
+source /usr/share/doc/fzf/examples/key-bindings.zsh
