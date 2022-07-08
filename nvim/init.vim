@@ -18,29 +18,33 @@ set signcolumn
 call plug#begin('~/.vim/plugged')
 	if !(&diff)
 	Plug 'neovim/nvim-lspconfig' " Native LSP 
+	" Omni func migration ???
 	Plug 'hrsh7th/nvim-cmp' " Auto-complete engine
 	Plug 'hrsh7th/cmp-nvim-lsp' " Nvim complete with lsp
 	Plug 'hrsh7th/cmp-buffer'  " Buffer complete
 	Plug 'ray-x/lsp_signature.nvim' " Signature help
-	" Plug 'hrsh7th/vim-vsnip' " Snippets
-	" Plug 'hrsh7th/cmp-vsnip' " Snippets
-	Plug 'nvim-lua/plenary.nvim' " Fuzzy finder
+	Plug 'hrsh7th/cmp-vsnip' " Snippets
+	Plug 'hrsh7th/vim-vsnip' " Snippets
+	Plug 'nvim-lua/plenary.nvim' " Handy functions
 	Plug 'nvim-telescope/telescope.nvim' " Finder
 	" Plug 'ludovicchabant/vim-gutentags' Tag autogeneration
 	Plug 'tpope/vim-fugitive'
+	Plug 'junegunn/goyo.vim'
 	endif
 	Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " Highlight
 	Plug 'rakr/vim-one' " Color scheme
+	Plug 'gruvbox-community/gruvbox'
 	Plug 'vim-airline/vim-airline' " Status line
+	Plug 'vim-airline/vim-airline-themes' " Status line
 call plug#end()
 
 if (has("termguicolors"))
 	set termguicolors
 endif
 
-colorscheme one
+colorscheme gruvbox
 set background=dark
-let g:airline_theme='one'
+let g:airline_theme='gruvbox'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#whitespace#enabled = 0
@@ -51,7 +55,8 @@ let g:netrw_liststyle = 3
 let g:netrw_winsize = 20
 let g:netrw_browse_split = 0
 let g:netrw_fastbrowse = 0 
-nnoremap <silent> <A-n> :Lex<Cr>
+" autocmd FileType netrw setl bufhidden=delete
+nnoremap <silent> <M-n> :Ex<Cr>
 
 " Enter normal mode by Esc from terminal
 tnoremap <Esc> <C-\><C-n>
@@ -75,9 +80,10 @@ nnoremap <silent> <S-Tab> :bp<CR>
 hi debugPC guifg=#282c34 guibg=#e5c07b
 hi debugBreakpoint guibg=darkred
 
+let mapleader=","
 " autocmd BufWritePre * :%s/\s\+$/
 " match QuickFixLine /\s\+$/
-
+nnoremap <leader>r :echo "run"<CR>
 lua << EOF
 vim.g.symbols_outline = {}
 local tree = require('nvim-treesitter.configs')
@@ -106,8 +112,13 @@ source ~/.config/nvim/cmp.vim
 source ~/.config/nvim/tdbg.vim
 source ~/.config/nvim/telescope.vim
 
+autocmd! filetype rust
+autocmd filetype rust setlocal makeprg=cargo
+
 nnoremap <silent> <Space>ff :Telescope find_files<CR>
 nnoremap <silent> <Space>fs :Telescope lsp_document_symbols<CR>
-nnoremap <silent> <Space>lg :Telescope live_grep<CR>
+nnoremap <silent> <Space>lg :lua require('telescope.builtin').live_grep()<CR>
+nnoremap <silent> <Space>gw :lua require('telescope.builtin').grep_string()<CR>
+nnoremap <silent> <Space>mp :Telescope man_pages<CR>
 
 endif

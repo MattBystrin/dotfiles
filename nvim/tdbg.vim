@@ -5,7 +5,7 @@ hi debugPC guifg=#282c34 guibg=#e5c07b
 hi debugBreakpoint guibg=darkred
 let g:termdebug_wide = 1 
 
-nnoremap <silent> <F4> :Break<CR>
+noremap <silent> <F4> :Break<CR>
 noremap <silent> <S-F4> :Clear<CR>
 noremap <silent> <F5> :Continue<CR>
 noremap <silent> <F6> :Over<CR>

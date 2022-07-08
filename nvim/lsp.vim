@@ -29,7 +29,6 @@ local on_attach = function(client, bufnr)
 	buf_set_keymap('n', '<space>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
 end
 
-local servers = {'clangd', 'pylsp'}
 nvim_lsp['clangd'].setup {
 	cmd = {
 		"clangd-13",
@@ -42,29 +41,25 @@ nvim_lsp['clangd'].setup {
 		debounce_text_changes = 150,
 	}
 }
-nvim_lsp['pyright'].setup {}
-nvim_lsp['sumneko_lua'].setup {
-	cmd = { "lua-language-server" },
+nvim_lsp['pylsp'].setup {
+	on_attach = on_attach
+}
+nvim_lsp['rust_analyzer'].setup {
+	on_attach = on_attach,
+	filetypes = { "rust", "*rs" },
 	settings = {
-		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-				version = "LuaJIT",
-				-- Setup your lua path
-				path = vim.split(package.path, ";"),
+		["rust-analyzer"] = {
+			assist = {
+				importGranularity = "module",
+				importPrefix = "self",
 			},
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { "vim" },
+			cargo = {
+				loadOutDirsFromCheck = true
 			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = {
-					[vim.fn.expand("$VIMRUNTIME/lua")] = true,
-					[vim.fn.expand("$VIMRUNTIME/lua/vim/lsp")] = true,
-				},
+			procMacro = {
+				enable = true
 			},
-		},
+		}
 	}
 }
 EOF

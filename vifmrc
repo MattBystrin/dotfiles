@@ -1,0 +1,6 @@
+
+color gruvbox
+command atril atril *.{pdf}
+filetype *.pdf atril &
+
+noremap <C-d> :shell<CR>
