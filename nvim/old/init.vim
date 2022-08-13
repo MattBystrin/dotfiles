@@ -49,12 +49,6 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'unique_tail'
 let g:airline#extensions#whitespace#enabled = 0
 
-" Netrw settings
-let g:netrw_banner = 0
-let g:netrw_liststyle = 3
-let g:netrw_winsize = 20
-let g:netrw_browse_split = 0
-let g:netrw_fastbrowse = 0 
 " autocmd FileType netrw setl bufhidden=delete
 nnoremap <silent> <M-n> :Ex<Cr>
 

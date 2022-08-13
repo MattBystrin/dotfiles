@@ -84,7 +84,7 @@ precmd_functions+=( precmd_vcs_info )
 zstyle ':vcs_info:git:*' formats '%b'
 
 if [ "$color_prompt" = yes ]; then
-	PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}(%B%F{%(#.red.blue)}%n💀%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}] ${vcs_info_msg_0_}\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} ' 
+	PROMPT=$'%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)──}(%B%F{%(#.red.blue)}%n@%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}] ${vcs_info_msg_0_}\n└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset} ' 
 #   RPROMPT=$'%(?.. %? %F{red}%B⨯%b%F{reset})%(1j. %j %F{yellow}%B⚙%b%F{reset}.)'
 
     # enable syntax-highlighting
@@ -201,6 +201,7 @@ fi
 
 # my aliases
 #source ~/.aliases
+alias dotf='nvim ~/dotfiles'
 
 # fzf source
 source /usr/share/doc/fzf/examples/key-bindings.zsh

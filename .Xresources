@@ -1,6 +1,6 @@
 XTerm.termName: xterm-256color
-XTerm*faceName: xft:JetBrains Mono:size=14:style=SemiBold:antialias=true
-XTerm*faceSize: 14
+XTerm*faceName: xft:JetBrains Mono:size=18:style=SemiBold:antialias=true
+XTerm*faceSize: 18
 XTerm*metaSendsEscape: true
 XTerm*selectToClipboard: true
 

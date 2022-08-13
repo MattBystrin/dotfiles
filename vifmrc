@@ -1,6 +1,7 @@
-
 color gruvbox
-command atril atril *.{pdf}
-filetype *.pdf atril &
+command evince evince *.{pdf}
+filetype *.pdf evince &
+
+command nvim tmux new-window -n `basename %d` nvim "+cd %d"
 
 noremap <C-d> :shell<CR>
