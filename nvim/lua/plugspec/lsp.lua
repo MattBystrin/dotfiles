@@ -47,6 +47,33 @@ nvim_lsp['clangd'].setup {
 	}
 }
 
+nvim_lsp['sumneko_lua'].setup {
+	on_attach = on_attach,
+	cmd = {'/home/ronin/Applications/lua-language-server/bin/lua-language-server'},
+	settings = {
+		Lua = {
+			runtime = {
+				-- Tell the language server which version of 
+				-- Lua you're using (most likely LuaJIT in the
+				-- case of Neovim)
+				version = 'LuaJIT',
+			},
+			diagnostics = {
+				-- Get the language server to recognize 
+				-- the `vim` global
+				globals = {'vim'},
+			},
+		      	workspace = {
+				-- Make the server aware of Neovim runtime files
+				library = vim.api.nvim_get_runtime_file("", true),
+		      	},
+		      	telemetry = {
+				enable = false,
+		      	},
+		}
+	}
+}
+
 nvim_lsp['pylsp'].setup {
 	on_attach = on_attach
 }

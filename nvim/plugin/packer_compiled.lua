@@ -85,10 +85,10 @@ _G.packer_plugins = {
     path = "/home/ronin/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
-  ["cmp-vsnip"] = {
+  ["gdb.nvim"] = {
     loaded = true,
-    path = "/home/ronin/.local/share/nvim/site/pack/packer/start/cmp-vsnip",
-    url = "https://github.com/hrsh7th/cmp-vsnip"
+    path = "/home/ronin/.local/share/nvim/site/pack/packer/start/gdb.nvim",
+    url = "/home/ronin/Develop/gdb.nvim"
   },
   gruvbox = {
     loaded = true,
@@ -100,10 +100,20 @@ _G.packer_plugins = {
     path = "/home/ronin/.local/share/nvim/site/pack/packer/start/lsp_signature.nvim",
     url = "https://github.com/ray-x/lsp_signature.nvim"
   },
+  ["lualine.nvim"] = {
+    loaded = true,
+    path = "/home/ronin/.local/share/nvim/site/pack/packer/start/lualine.nvim",
+    url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/home/ronin/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-gdb"] = {
+    loaded = true,
+    path = "/home/ronin/.local/share/nvim/site/pack/packer/start/nvim-gdb",
+    url = "https://github.com/sakhnik/nvim-gdb"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -134,11 +144,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ronin/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
-  },
-  ["vim-vsnip"] = {
-    loaded = true,
-    path = "/home/ronin/.local/share/nvim/site/pack/packer/start/vim-vsnip",
-    url = "https://github.com/hrsh7th/vim-vsnip"
   }
 }
 

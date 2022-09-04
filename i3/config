@@ -176,12 +176,15 @@ bar {
 	colors {
 		background #282A2E
 		statusline #C5C8C6
+		focused_workspace #F0C674 #282A2E #C5C8C6 
 	}
 	position top
 	status_command i3status
 	font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 	font pango:JetBrains Mono Bold 12
 	workspace_min_width 40
+	bindsym button4 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+	bindsym button5 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 }
 
 # Window no border

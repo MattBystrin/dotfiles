@@ -3,7 +3,8 @@ require('telescope').setup{
 	defaults = {
 		mappings = {
 			i = {
-				["<esc>"] = actions.close
+				["<esc>"] = actions.close,
+				["<C-h>"] = actions.which_key
 			}
 		},
 		layout_config = { height = 0.95, width = 0.9 },
