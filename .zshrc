@@ -202,6 +202,7 @@ fi
 # my aliases
 #source ~/.aliases
 alias dotf='nvim ~/dotfiles'
+alias cal='ncal -b -M'
 
 # fzf source
 source /usr/share/doc/fzf/examples/key-bindings.zsh

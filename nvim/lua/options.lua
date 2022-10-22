@@ -13,10 +13,10 @@ local options = {
 	scrolloff = 8,
 	textwidth = 80,
 	colorcolumn = '+1',
-	signcolumn = 'auto:2',
+	signcolumn = 'auto:1',
 	termguicolors = true,
 	background = 'dark',
-	completeopt= 'menu,noselect'
+	completeopt= 'menu,menuone,noselect'
 }
 
 vim.opt.shortmess:append "c"

@@ -34,6 +34,9 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
 nvim_lsp['clangd'].setup {
 	cmd = {
 		"clangd-13",
@@ -44,7 +47,8 @@ nvim_lsp['clangd'].setup {
 	on_attach = on_attach,
 	flags = {
 		debounce_text_changes = 150,
-	}
+	},
+	capabilities = capabilities
 }
 
 nvim_lsp['sumneko_lua'].setup {
@@ -71,11 +75,13 @@ nvim_lsp['sumneko_lua'].setup {
 				enable = false,
 		      	},
 		}
-	}
+	},
+	capabilities = capabilities
 }
 
 nvim_lsp['pylsp'].setup {
-	on_attach = on_attach
+	on_attach = on_attach,
+	capabilities = capabilities
 }
 
 nvim_lsp['rust_analyzer'].setup {
@@ -94,9 +100,11 @@ nvim_lsp['rust_analyzer'].setup {
 				enable = true
 			},
 		}
-	}
+	},
+	capabilities = capabilities
 }
 
 nvim_lsp['gopls'].setup {
-	on_attach = on_attach
+	on_attach = on_attach,
+	capabilities = capabilities
 }
