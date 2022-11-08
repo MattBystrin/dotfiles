@@ -35,6 +35,7 @@ vim.keymap.set('n', '<space>mp', require('telescope.builtin').man_pages , opts)
 vim.keymap.set('n', '<space>b', require('telescope.builtin').buffers , opts)
 vim.keymap.set('n', '<space>h', require('telescope.builtin').help_tags, opts)
 -- Debug keymaps
+vim.keymap.set('n', 'gt', '<C-]>', opts)
 --[[ ,db
 ,dc
 ,du

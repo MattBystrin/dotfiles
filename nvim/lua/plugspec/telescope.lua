@@ -4,7 +4,9 @@ require('telescope').setup{
 		mappings = {
 			i = {
 				["<esc>"] = actions.close,
-				["<C-h>"] = actions.which_key
+				["<C-h>"] = actions.which_key,
+				["<C-w>"] = actions.delete_buffer,
+				--["<CR>"] = actions.file_vsplit
 			}
 		},
 		layout_config = { height = 0.95, width = 0.9 },

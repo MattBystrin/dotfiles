@@ -8,6 +8,7 @@ require('plugspec/telescope')
 require('plugspec/treesitter')
 require('plugspec/dap')
 require('plugspec/misc')
+require('plugspec/luasnip')
 
 vim.cmd "colorscheme gruvbox"
 

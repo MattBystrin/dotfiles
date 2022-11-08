@@ -25,3 +25,4 @@ for k,v in pairs(options) do
 	vim.opt[k] = v
 end
 
+vim.treesitter.highlighter.hl_map.error = "Underlined"
