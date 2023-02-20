@@ -25,7 +25,10 @@ vim.keymap.set('n', '<leader>t', '<Plug>PlenaryTestFile', {noremap = false, sile
 -- Terminal
 vim.keymap.set('t', '<Esc>', '<C-\\><C-n>', opts)
 -- Tabs
-vim.keymap.set('n', '<Tab>', ':bn<CR>', opts)
+vim.keymap.set('n', '<C-l>', ':bn<CR>', opts)
+vim.keymap.set('n', '<C-h>', ':bp<CR>', opts)
+vim.keymap.set('n', '<C-j>', ':tabn<CR>', opts)
+vim.keymap.set('n', '<C-k>', ':tabp<CR>', opts)
 -- Telescope <3 Thanks TJ !!!
 vim.keymap.set('n', '<space>ff', require('telescope.builtin').find_files, opts)
 vim.keymap.set('n', '<space>ls', require('telescope.builtin').lsp_document_symbols , opts)

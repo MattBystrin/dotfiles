@@ -19,13 +19,31 @@ return require('packer').startup(function()
 	use 'gruvbox-community/gruvbox'
 
 	use {'numToStr/Comment.nvim',
-    		config = function()
+		config = function()
 			require('Comment').setup()
 		end
 	}
 	use 'mfussenegger/nvim-dap'
 	use 'rcarriga/nvim-dap-ui' 
-	use 'nvim-lualine/lualine.nvim'
+	use {'nvim-lualine/lualine.nvim',
+		config = function()
+			require'lualine'.setup({
+				sections = {
+					lualine_x = {
+						'encoding',
+						{'fileformat',
+						symbols = {
+							unix = 'NIX',
+							dos = 'DOS',
+							mac = 'MAC'
+						}
+						},
+						'filetype'
+					}
+				}
+			})
+		end
+	}
 
 	-- Developed plugins
 	use '/home/ronin/Develop/gdb.nvim'

@@ -16,7 +16,14 @@ local options = {
 	signcolumn = 'auto:1',
 	termguicolors = true,
 	background = 'dark',
-	completeopt= 'menu,menuone,noselect'
+	completeopt= 'menu,menuone,noselect',
+	list = true,
+	listchars = {
+		eol = "⏎",
+		tab = "\\u279E ",
+		trail = ".",
+		lead = "."
+	},
 }
 
 vim.opt.shortmess:append "c"

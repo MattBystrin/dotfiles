@@ -39,7 +39,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 nvim_lsp['clangd'].setup {
 	cmd = {
-		"clangd-13",
+		"clangd-15",
 		"--query-driver=/usr/bin/arm-none-eabi-gcc,/urs/bin/gcc",
 		"--all-scopes-completion",
 		"--background-index"

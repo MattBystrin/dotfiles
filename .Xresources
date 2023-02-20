@@ -1,6 +1,6 @@
 XTerm.termName: xterm-256color
-XTerm*faceName: xft:JetBrains Mono:size=14:style=SemiBold:antialias=true
-XTerm*faceSize: 14
+XTerm*faceName: xft:Terminus:size=24:style=Bold
+XTerm*faceSize: 24
 XTerm*metaSendsEscape: true
 XTerm*selectToClipboard: true
 
@@ -18,17 +18,18 @@ XTerm*color9:  #fb4934
 XTerm*color2:  #98971a
 XTerm*color10: #b8bb26
 ! DarkYellow + Yellow
-*XTermcolor3:  #d79921
-*XTermcolor11: #fabd2f
+XTerm*color3:  #d79921
+XTerm*color11: #fabd2f
 ! DarkBlue + Blue
-*XTermcolor4:  #458588
-*XTermcolor12: #83a598
+XTerm*color4:  #458588
+XTerm*color12: #83a598
 ! DarkMagenta + Magenta
-*XTermcolor5:  #b16286
-*XTermcolor13: #d3869b
+XTerm*color5:  #b16286
+XTerm*color13: #d3869b
 ! DarkCyan + Cyan
 XTerm*color6:  #689d6a
 XTerm*color14: #8ec07c
 ! LightGrey + White
-XTerm*color7:  #a89984
+! XTerm*color7:  #a89984 Light gray
+XTerm*color7:  #928374
 XTerm*color15: #ebdbb2

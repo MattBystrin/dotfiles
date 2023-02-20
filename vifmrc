@@ -7,5 +7,5 @@ command nvim tmux new-window -n `basename %d` nvim "+cd %d"
 
 noremap <C-d> :shell<CR>
 
-filetype *.jpg,*.bmp,*.gif,*.png 
-	\ ristretto %c &
+fileviewer {*.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm},<image/*>
+         \ img2sixel -p 255 -w 800 %f %pd
