@@ -1,13 +1,7 @@
---[[
-nnoremap <A-h> <C-w>h
-nnoremap <A-j> <C-w>j
-nnoremap <A-k> <C-w>k
-nnoremap <A-l> <C-w>l
-]]--
 vim.g.mapleader = ","
 
 local opts = { noremap=false, silent=true }
--- System buffer yank&paste
+-- System clipboard yank&paste
 vim.keymap.set('n', '<leader>y', '"+y', {noremap = true, silent = true})
 vim.keymap.set('v', '<leader>y', '"+y', {noremap = true, silent = true})
 vim.keymap.set('n', '<leader>p', '"+p', opts)
@@ -37,10 +31,16 @@ vim.keymap.set('n', '<space>gs', require('telescope.builtin').grep_string , opts
 vim.keymap.set('n', '<space>mp', require('telescope.builtin').man_pages , opts)
 vim.keymap.set('n', '<space>b', require('telescope.builtin').buffers , opts)
 vim.keymap.set('n', '<space>h', require('telescope.builtin').help_tags, opts)
--- Debug keymaps
+-- Tags keymaps
 vim.keymap.set('n', 'gt', '<C-]>', opts)
---[[ ,db
-,dc
-,du
-,dd
-,dl ]]
+-- Debug keymaps
+vim.keymap.set('n', '<space>ds', require'gdb'.debug_start, opts)
+vim.keymap.set('n', '<space>dS', require'gdb'.debug_stop, opts)
+-- Program execution
+vim.keymap.set('n', '<F6>',	require'gdb'.next, opts)
+vim.keymap.set('n', '<F7>',	require'gdb'.step, opts)
+vim.keymap.set('n', '<F8>',	require'gdb'.stop, opts)
+vim.keymap.set('n', '<F9>',	require'gdb'.finish, opts)
+vim.keymap.set('n', '<F5>',	require'gdb'.continue, opts)
+vim.keymap.set('n', '<F3>',	require'gdb'.exec_until, opts)
+vim.keymap.set('n', '<space>dj', require'gdb'.jump, opts)
