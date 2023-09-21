@@ -1,0 +1,23 @@
+[core]
+	editor = vim
+
+[alias]
+	dog = log --decorate --oneline --graph
+	dt = difftool
+	dc = diff --cached
+	dtc = difftool --cached
+	c = commit -v
+	s = status
+
+[diff]
+	tool = vimdiff
+
+[merge]
+	tool = vimdiff2
+
+[difftool]
+	prompt = false
+	trustExitCode = true
+
+[pull]
+	ff = only

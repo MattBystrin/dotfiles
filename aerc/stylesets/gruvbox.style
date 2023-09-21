@@ -1,0 +1,47 @@
+# fg bg bold blink underline italic dim reverse normal default
+# EBDBB2
+default.fg = white
+default.bg = black
+
+msglist_*.fg = white
+msglist_*.bg = black
+*.selected.reverse = toggle
+
+statusline_*.fg = white
+statusline_*.bg = black
+
+# msglist_unread
+# msglist_read
+# msglist_flagged
+# msglist_deleted
+# msglist_marked
+# msglist_result
+# msglist_answered
+# 
+# dirlist_default
+# dirlist_unread
+# dirlist_recent
+# 
+# completion_default
+# completion_gutter
+# completion_pill
+# 
+# tab
+# stack
+# spinner
+# border
+
+# 
+# [viewer]
+# url
+# header
+# signature
+# diff_meta
+# diff_chunk
+# diff_add
+# diff_del
+# quoute_1
+# quoute_2
+# quoute_3
+# quoute_4
+# quoute_x

@@ -11,41 +11,29 @@ return require('packer').startup(function()
 
 	use 'ray-x/lsp_signature.nvim'
 
-	use 'nvim-lua/plenary.nvim'
-	use 'nvim-telescope/telescope.nvim'
+	use { 'nvim-lua/plenary.nvim', tag = 'v0.1.1' }
+	use { 'nvim-telescope/telescope.nvim', tag = '0.1.1' }
 
-	use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
-	use 'tpope/vim-fugitive'
-	use 'gruvbox-community/gruvbox'
+	use { 'nvim-treesitter/nvim-treesitter', tag = 'v0.7.2', run = ':TSUpdate' }
 
-	use {'numToStr/Comment.nvim',
+	use {
+		'numToStr/Comment.nvim',
 		config = function()
 			require('Comment').setup()
 		end
 	}
-	use 'mfussenegger/nvim-dap'
-	use 'rcarriga/nvim-dap-ui' 
-	use {'nvim-lualine/lualine.nvim',
-		config = function()
-			require'lualine'.setup({
-				sections = {
-					lualine_x = {
-						'encoding',
-						{'fileformat',
-						symbols = {
-							unix = 'NIX',
-							dos = 'DOS',
-							mac = 'MAC'
-						}
-						},
-						'filetype'
-					}
-				}
-			})
-		end
-	}
+
+	--use 'tpope/vim-fugitive'
+	
+	use { 'lewis6991/gitsigns.nvim', tag = 'v0.6' }
+
+	use 'gruvbox-community/gruvbox'
+	use 'nvim-lualine/lualine.nvim'
 
 	-- Developed plugins
-	use '/home/ronin/Develop/gdb.nvim'
+	use {
+		'MattBystrin/gdb.nvim',
+		branch = 'dev'
+	}
 end)
 

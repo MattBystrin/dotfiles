@@ -1,4 +1,8 @@
-local config
-
--- lua config for 
-
+require'gdb'.setup({
+	command = {
+		"gdb-multiarch"
+	},
+	modules = {
+		bkpts = {}
+	}
+})

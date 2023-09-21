@@ -1,0 +1,5 @@
+i3/platform
+nvim/plugin
+nvim/plugin/*
+nvim/spell/*
+aerc/accounts.conf

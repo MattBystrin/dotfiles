@@ -31,18 +31,19 @@ local on_attach = function(client, bufnr)
 	vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
 	vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
 	vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-	vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+	-- vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
 end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
-nvim_lsp['clangd'].setup {
+nvim_lsp.clangd.setup {
 	cmd = {
-		"clangd-15",
-		"--query-driver=/usr/bin/arm-none-eabi-gcc,/urs/bin/gcc",
-		"--all-scopes-completion",
-		"--background-index"
+		'clangd-15',
+		'--enable-config',
+		'--header-insertion=never',
+		'--all-scopes-completion',
+		'--background-index'
 	},
 	on_attach = on_attach,
 	flags = {
@@ -51,7 +52,7 @@ nvim_lsp['clangd'].setup {
 	capabilities = capabilities
 }
 
-nvim_lsp['sumneko_lua'].setup {
+nvim_lsp.sumneko_lua.setup {
 	on_attach = on_attach,
 	cmd = {'/home/ronin/Applications/lua-language-server/bin/lua-language-server'},
 	settings = {
@@ -67,13 +68,13 @@ nvim_lsp['sumneko_lua'].setup {
 				-- the `vim` global
 				globals = {'vim'},
 			},
-		      	workspace = {
+			workspace = {
 				-- Make the server aware of Neovim runtime files
 				library = vim.api.nvim_get_runtime_file("", true),
-		      	},
-		      	telemetry = {
+			},
+			telemetry = {
 				enable = false,
-		      	},
+			},
 		}
 	},
 	capabilities = capabilities

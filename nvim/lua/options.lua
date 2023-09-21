@@ -1,6 +1,9 @@
 local options = {
 	swapfile = false,
 	number = true,
+	relativenumber = true,
+	cursorline = true,
+	cursorlineopt = "number",
 	hlsearch = false,
 	hidden = true,
 	backup = false,
@@ -19,8 +22,8 @@ local options = {
 	completeopt= 'menu,menuone,noselect',
 	list = true,
 	listchars = {
-		eol = "⏎",
-		tab = "\\u279E ",
+		eol = "<",
+		tab = "| ",
 		trail = ".",
 		lead = "."
 	},
@@ -33,3 +36,8 @@ for k,v in pairs(options) do
 end
 
 vim.treesitter.highlighter.hl_map.error = "Underlined"
+
+vim.opt.keymap="russian-jcukenwin"
+vim.opt.iminsert=0
+vim.opt.langmap="ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz"
+vim.keymap.set({'i', 'n', 'c'}, '<A-Space>', '<C-^>', {noremap = true, silent = true})
