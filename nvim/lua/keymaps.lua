@@ -16,6 +16,9 @@ vim.keymap.set('n', '<leader>l', ':luafile %<CR>', {noremap = false, silent = fa
 vim.keymap.set('n', '<leader>m', ':make!<CR>', {noremap = false, silent = false})
 vim.keymap.set('n', '<leader>M', ':make<CR>', {noremap = false, silent = false})
 vim.keymap.set('n', '<leader>t', '<Plug>PlenaryTestFile', {noremap = false, silent = false})
+-- Bash evaluation
+vim.keymap.set('n', '<leader>b', ':.w !bash<CR>', opts)
+vim.keymap.set('v', '<leader>b', ':w !bash<CR>', opts)
 -- Buf wipe without closing windows
 vim.keymap.set('n', '<leader>w', '<cmd>bp|bw #<CR>', opts)
 -- Terminal

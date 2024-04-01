@@ -1,0 +1,19 @@
+#!/bin/bash
+
+_git_check_() {
+	git rev-parse --git-dir > /dev/null && return
+	return 1
+}
+
+_git_add_() {
+	_git_check_ || return
+	git -c color.ui=always status --short | \
+	fzf -m --ansi --reverse --height=40% | \
+	cut -c 4- | \
+	xargs git add
+
+	git status
+}
+
+bind '"\er": redraw-current-line'
+bind '"\C-g\C-a":" _git_add_ \n"'

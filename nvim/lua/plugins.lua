@@ -7,7 +7,7 @@ return require('packer').startup(function()
 	use 'hrsh7th/cmp-nvim-lsp'
 	use 'hrsh7th/cmp-buffer'
 
-	use 'neovim/nvim-lspconfig'
+	use { 'neovim/nvim-lspconfig', tag = "v0.1.5" }
 
 	use 'ray-x/lsp_signature.nvim'
 
@@ -23,8 +23,7 @@ return require('packer').startup(function()
 		end
 	}
 
-	--use 'tpope/vim-fugitive'
-	
+	-- Git helpers
 	use { 'lewis6991/gitsigns.nvim', tag = 'v0.6' }
 
 	use 'gruvbox-community/gruvbox'
@@ -35,5 +34,6 @@ return require('packer').startup(function()
 		'MattBystrin/gdb.nvim',
 		branch = 'dev'
 	}
+
 end)
 

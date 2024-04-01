@@ -1,10 +1,10 @@
 general {
-    output_format = "i3bar"
-    separator = "|"
+	output_format = "i3bar"
+	separator = "|"
 }
 
 order += "volume master"
-order += "battery 1"
+order += "battery 0"
 order += "memory"
 order += "load"
 order += "disk /"
@@ -18,32 +18,38 @@ volume master {
 	device = "default"
 	mixer = "Master"
 	mixer_idx = 0
+	separator_block_width = 30
 }
 
-battery 1 {
-	format = "%status %percentage %remaining %emptytime"
+battery 0 {
+	format = "%status %percentage %remaining"
 	format_down = "NOBAT"
-	status_chr = "⚡CHR"
+	status_chr = " CHR"
 	status_bat = " BAT"
 	status_unk = "?UNK"
 	status_full = "FULL"
 	path = "/sys/class/power_supply/BAT%d/uevent"
 	low_threshold = 10
+	separator_block_width = 30
 }
 
 memory {
-	format = " RAM %used"
+	format = "RAM %used"
+	separator_block_width = 30
 }
 
 load {
-    format = "CPU %1min"
+	format = "CPU %1min"
+	separator_block_width = 30
 }
 
 disk "/" {
-    format = "%avail"
+	format = "%avail"
+	separator_block_width = 30
 }
 
 tztime local {
-   format = "%Y-%m-%d %H:%M:%S"
-   hide_if_equals_localtime = false
+	format = "%A %Y-%m-%d %H:%M:%S"
+	hide_if_equals_localtime = false
+	separator_block_width = 30
 }
